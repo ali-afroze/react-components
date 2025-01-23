@@ -1,0 +1,25 @@
+{
+  "name": "react-components",
+  "version": "0.0.1",
+  "description": "A library containing components for react and next.",
+  "type": "commonjs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali-afroze/react-components.git"
+  },
+  "homepage": "https://github.com/ali-afroze/react-components#readme",
+  "bugs": {
+    "url": "https://github.com/ali-afroze/react-components/issues"
+  },
+  "keywords": [
+    "library",
+    "react",
+    "next"
+  ],
+  "license": "MIT",
+  "author": "Ali Afroze",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
