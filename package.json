@@ -11,11 +11,28 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "test": "jest --watchAll --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ali-afroze/react-components.git"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "babel": {
+    "sourceType": "unambiguous",
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
   },
   "homepage": "https://github.com/ali-afroze/react-components#readme",
   "bugs": {
@@ -29,6 +46,9 @@
   "license": "MIT",
   "author": "Ali Afroze",
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
@@ -42,6 +62,7 @@
     "react-dom": "^19.0.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
+    "styled-components": "^6.1.14",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3"
   },
