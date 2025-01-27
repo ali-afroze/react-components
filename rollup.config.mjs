@@ -10,32 +10,7 @@ export default [
     output: {
       dir: "dist/esm",
       format: "esm",
-      sourcemap: true
-    },
-    external: ["react", "react-dom", "react/jsx-runtime"],
-    plugins: [
-      resolve(),
-      commonjs(),
-      postcss({
-        extensions: [".css"],
-        inject: true, 
-        extract: false
-      }),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        outDir: "dist/esm",
-        declaration: true,
-        declarationDir: "dist/esm/types",
-        exclude: ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.ts", "**/*.stories.tsx"],
-      })
-    ]
-  },
-  {
-    input: "src/index.ts",
-    output: {
-      dir: "dist/cjs",      
-      format: "cjs",
-      sourcemap: true
+      sourcemap: true,
     },
     external: ["react", "react-dom", "react/jsx-runtime"],
     plugins: [
@@ -44,20 +19,55 @@ export default [
       postcss({
         extensions: [".css"],
         inject: true,
-        extract: false
+        extract: false,
+      }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        outDir: "dist/esm",
+        declaration: true,
+        declarationDir: "dist/esm/types",
+        exclude: [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/*.stories.ts",
+          "**/*.stories.tsx",
+        ],
+      }),
+    ],
+  },
+  {
+    input: "src/index.ts",
+    output: {
+      dir: "dist/cjs",
+      format: "cjs",
+      sourcemap: true,
+    },
+    external: ["react", "react-dom", "react/jsx-runtime"],
+    plugins: [
+      resolve(),
+      commonjs(),
+      postcss({
+        extensions: [".css"],
+        inject: true,
+        extract: false,
       }),
       typescript({
         tsconfig: "./tsconfig.json",
         declaration: false,
         outDir: "dist/cjs",
-        exclude: ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.ts", "**/*.stories.tsx"],
-      })
-    ]
+        exclude: [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/*.stories.ts",
+          "**/*.stories.tsx",
+        ],
+      }),
+    ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
-    external: [/\.css$/]
-  }
+    external: [/\.css$/],
+  },
 ];
